@@ -1,0 +1,57 @@
+const User=require('./../models/User');
+module.exports={
+	addUser:(req,res,next)=>{
+		console.log(req.body);
+		const saveuser=req.body;
+		const user=new User(saveuser);
+		if(!saveuser._id){
+		user.save((err,newUser)=>{
+			if(err)
+				res.send(err)
+			else if(!newUser)
+				res.send(400)
+			else
+				res.send(newUser)
+			next()
+		});
+	}else{
+		User.findById(req.body._id,function(err,user){
+				if(err) return handleError(err);
+				user.set(saveuser);
+				user.save((err,updateUser)=>{
+					if(err)
+				res.send(err)
+			else if(!updateUser)
+				res.send(400)
+			else
+				res.send(updateUser)
+			next()
+				});
+		});
+	}
+	},
+	getUser:(req,res,next)=>{
+		// console.log(req.params.id);
+		const userid=req.params.id;
+		User.findById(userid).then((err,user)=>{
+			if(err)
+				res.send(err)
+			else if(!user)
+				res.send(404)
+			else
+				res.send(user)
+			next()
+		})
+	},
+	getAllUser:(req,res,next)=>{
+		User.find((err,users)=>{
+			if(err)
+				res.send(err)
+			else if(!users)
+				res.send(404)
+			else
+				res.send(users)
+			next()
+		})
+	}
+}
