@@ -13,7 +13,7 @@ const url=process.env.MONGODB_URI || "mongodb://localhost:27017/mernstack"
 
 try{
 	mongoose.connect(url,{
-
+		useNewUrlParser:true
 	})
 }catch(error){
 	console.log(error);

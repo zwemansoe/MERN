@@ -1,16 +1,17 @@
+var JwtAuthMiddleware=require("./../Middlewares/JwtAuthMiddleware");
 const usercontroller=require('./../controllers/UserController');
 module.exports=(router)=>{
 
 	router
 		.route('/user/:id')
-		.get(usercontroller.getUser)
+		.get(JwtAuthMiddleware,usercontroller.getUser)
 
 	router
 		.route('/user')
-		.post(usercontroller.addUser)	
+		.post(JwtAuthMiddleware,usercontroller.addUser)	
 
 	router
 		.route('/users/')
-		.get(usercontroller.getAllUser)
+		.get(JwtAuthMiddleware,usercontroller.getAllUser)
 	
 }
