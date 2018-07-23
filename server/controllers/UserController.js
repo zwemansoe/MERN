@@ -1,7 +1,15 @@
 const User=require('./../models/User');
+const bcrypt=require('bcryptjs');
+
 module.exports={
 	addUser:(req,res,next)=>{
-		console.log(req.body);
+		
+		if(req.body.password){
+			var hashedPassword=bcrypt.hashSync(req.body.password,8);
+			req.body.password=hashedPassword;
+		}
+
+
 		const saveuser=req.body;
 		const user=new User(saveuser);
 		if(!saveuser._id){
@@ -11,6 +19,7 @@ module.exports={
 			else if(!newUser)
 				res.send(400)
 			else
+				newUser.password=undefined
 				res.send(newUser)
 			next()
 		});
@@ -24,6 +33,7 @@ module.exports={
 			else if(!updateUser)
 				res.send(400)
 			else
+				updateUser.password=undefined
 				res.send(updateUser)
 			next()
 				});
@@ -33,7 +43,8 @@ module.exports={
 	getUser:(req,res,next)=>{
 		// console.log(req.params.id);
 		const userid=req.params.id;
-		User.findById(userid).then((err,user)=>{
+		User.findById(userid,{password:0}).then((err,user)=>{
+		// User.findById(userid).then((err,user)=>{
 			if(err)
 				res.send(err)
 			else if(!user)
@@ -44,7 +55,8 @@ module.exports={
 		})
 	},
 	getAllUser:(req,res,next)=>{
-		User.find((err,users)=>{
+		User.find({},{password:0}).then((err,users)=>{
+		// User.find((err,users)=>{
 			if(err)
 				res.send(err)
 			else if(!users)

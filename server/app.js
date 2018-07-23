@@ -6,6 +6,9 @@ const bodyParser=require('body-parser');
 const routes=require('./routes/')
 const app=express();
 const router=express.Router();
+router.use(bodyParser.urlencoded({extended:false}));
+router.use(bodyParser.json());
+
 const url=process.env.MONGODB_URI || "mongodb://localhost:27017/mernstack"
 
 try{
