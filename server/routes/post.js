@@ -10,6 +10,10 @@ module.exports=(router)=>{
 		.post(postController.addPost)
 
 	router
+		.route('/posttag')
+		.post(postController.savePostAndTagAsync)	
+
+	router
 		.route('/posts/')
 		.get(postController.getAllPost)	
 }
