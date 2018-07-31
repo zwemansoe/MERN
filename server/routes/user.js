@@ -8,7 +8,7 @@ module.exports=(router)=>{
 
 	router
 		.route('/user')
-		.post(JwtAuthMiddleware,usercontroller.addUser)	
+		.post(usercontroller.addUser)	
 
 	router
 		.route('/users/')
