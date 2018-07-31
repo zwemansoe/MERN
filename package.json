@@ -1,7 +1,7 @@
 {
   "name": "mern-stack",
   "version": "1.0.0",
-  "description": "mern stack zwe man soe",
+  "description": "mern stack zwe man",
   "main": "server/app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
