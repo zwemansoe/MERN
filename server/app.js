@@ -27,6 +27,10 @@ app.use(bodyParser.json())
 
 app.use('/api',router);
 
-app.listen(port,()=>{
-	console.log(`Server started at port:${port}`);
+// app.listen(port,()=>{
+// 	console.log(`Server started at port:${port}`);
+// });
+app.set('port',(process.env.PORT||5000));
+app.listen(app.get('port'),function(){
+	console.log('Node app is running on port ',app.get('port'));
 });
