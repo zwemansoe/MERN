@@ -4,7 +4,7 @@ module.exports=(router)=>{
 
 	router
 		.route('/user/:id')
-		.get(usercontroller.getUser)
+		.get(JwtAuthMiddleware,usercontroller.getUser)
 
 	router
 		.route('/user',function(){console.log('ok')})
@@ -12,6 +12,6 @@ module.exports=(router)=>{
 
 	router
 		.route('/users/')
-		.get(usercontroller.getAllUser)
+		.get(JwtAuthMiddleware,usercontroller.getAllUser)
 	
 }
