@@ -7,7 +7,7 @@ module.exports=(router)=>{
 		.get(usercontroller.getUser)
 
 	router
-		.route('/user')
+		.route('/user',function(){console.log('ok')})
 		.post(usercontroller.addUser)	
 
 	router
