@@ -1,7 +1,7 @@
 {
   "name": "mern-stack",
   "version": "1.0.0",
-  "description": "mern stack zwe man soe",
+  "description": "mern stack lesson",
   "main": "server/app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -13,16 +13,16 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server/app.js"
+    "test": "node server/app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zwemansoe/MERN.git"
   },
   "keywords": [
-    "zwemansoe"
+    "zweman"
   ],
-  "author": "zwemansoe",
+  "author": "zweman",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/zwemansoe/MERN/issues"
