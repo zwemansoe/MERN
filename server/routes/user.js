@@ -4,7 +4,7 @@ module.exports=(router)=>{
 
 	router
 		.route('/user/:id')
-		.get(JwtAuthMiddleware,usercontroller.getUser)
+		.get(usercontroller.getUser)
 
 	router
 		.route('/user')
@@ -12,6 +12,6 @@ module.exports=(router)=>{
 
 	router
 		.route('/users/')
-		.get(JwtAuthMiddleware,usercontroller.getAllUser)
+		.get(usercontroller.getAllUser)
 	
 }
