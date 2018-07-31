@@ -1,4 +1,4 @@
-const postController=require('./../controllers/postController');
+const postController=require('./../controllers/PostController');
 
 module.exports=(router)=>{
 	router
