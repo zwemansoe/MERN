@@ -9,7 +9,7 @@ const router=express.Router();
 router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
 
-const url=process.env.MONGODB_URI || "mongodb://localhost:27017/mernstack"
+const url="mongodb://zweman:zwemansoe6@ds161411.mlab.com:61411/mernstack-db" || "mongodb://localhost:27017/mernstack"
 
 try{
 	mongoose.connect(url,{
